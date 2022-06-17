@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "booksapi_dev_admin",
+    "password": "reallysecretmysqlpassword",
+    "database": "booksapi_dev",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "booksapi_dev_admin",
+    "password": "reallysecretmysqlpassword",
+    "database": "booksapi_dev",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "booksapi_dev_admin",
+    "password": "reallysecretmysqlpassword",
+    "database": "booksapi_dev",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

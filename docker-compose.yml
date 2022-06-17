@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+    booksapi:
+        container_name: booksapi
+        image: booksapi
+        depends_on:
+            - database
+        restart: always
+        working_dir: /app
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: base
+        volumes:
+            - ./src/index.js:/app/index.js
+            - /src/node_modules
+        ports:
+            - "${PORT}:${PORT}"
+
+    database:
+        container_name: database
+        image: mysql:5.7
+        volumes:
+        - ./src/db_data:/var/lib/mysql
+        ports: 
+        - 3306:3306
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
